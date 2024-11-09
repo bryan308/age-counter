@@ -53,7 +53,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`h-screen flex flex-col items-center justify-between ${geistSans.variable} ${geistMono.variable} antialiased`}
+				className={`h-screen flex flex-col items-center justify-between ${geistSans.className} ${geistMono.variable} antialiased`}
 			>
 				{children}
 				<Footer />
