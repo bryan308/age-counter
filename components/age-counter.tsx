@@ -92,23 +92,16 @@ export function AgeCounterComponent() {
 		}
 	}
 
-	const handleReset = () => {
-		const currentYear = new Date().getFullYear()
-		setShowCounter(false)
-		setBirthDate(setYear(new Date(), currentYear))
-		setSelectedYear(currentYear)
+	const handleInputReset = () => {
+		setSelectedYear(undefined)
+		setBirthDate(undefined)
 		setBirthTime(null)
+		setShowCounter(false)
 		setDisplayAge(0)
 		if (animationRef.current) {
 			cancelAnimationFrame(animationRef.current)
 		}
 		lastUpdateTimeRef.current = 0
-	}
-
-	const handleInputReset = () => {
-		setSelectedYear(undefined)
-		setBirthDate(undefined)
-		setBirthTime(null)
 	}
 
 	return (
@@ -194,17 +187,18 @@ export function AgeCounterComponent() {
 					</form>
 				</div>
 				<div
-					className={`text-center transition-opacity duration-500 ${
+					className={`transition-opacity duration-500 ${
 						showCounter ? "opacity-100" : "opacity-0 h-0 overflow-hidden"
 					}`}
 				>
 					<p className="text-base">Age</p>
-					<p className="text-4xl font-mono transition-all duration-500 ease-in-out">
-						{displayAge.toFixed(10)}
+					<p className="text-4xl font-semibold font-mono transition-all duration-500 ease-in-out">
+						{displayAge.toFixed(9)}
 					</p>
 					<Button
-						onClick={handleReset}
+						onClick={handleInputReset}
 						className="mt-4"
+						variant="secondary"
 					>
 						Reset
 					</Button>
