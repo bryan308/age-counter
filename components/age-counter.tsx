@@ -37,7 +37,6 @@ export function AgeCounterComponent() {
 
 	const currentYear = new Date().getFullYear()
 	const years = Array.from({ length: currentYear - 1900 + 1 }, (_, i) => currentYear - i)
-	const years = Array.from({ length: currentYear - 1900 + 1 }, (_, i) => currentYear - i)
 
 	useEffect(() => {
 		if (birthDate && showCounter) {
@@ -47,13 +46,11 @@ export function AgeCounterComponent() {
 				}
 
 				const deltaTime = (currentTime - lastUpdateTimeRef.current) / 1000 // Convert to seconds
-				const deltaTime = (currentTime - lastUpdateTimeRef.current) / 1000 // Convert to seconds
 				lastUpdateTimeRef.current = currentTime
 
 				const ageInMs = differenceInMilliseconds(new Date(), birthDate)
 				targetAgeRef.current = ageInMs / (365.25 * 24 * 60 * 60 * 1000)
 
-				setDisplayAge((prevAge) => lerp(prevAge, targetAgeRef.current, Math.min(1, deltaTime * 2)))
 				setDisplayAge((prevAge) => lerp(prevAge, targetAgeRef.current, Math.min(1, deltaTime * 2)))
 
 				animationRef.current = requestAnimationFrame(updateAge)
@@ -69,12 +66,6 @@ export function AgeCounterComponent() {
 		}
 	}, [birthDate, showCounter])
 
-	const handleYearChange = (year: string) => {
-		const yearNumber = parseInt(year, 10)
-		if (birthDate) {
-			setBirthDate(setYear(birthDate, yearNumber))
-		} else {
-			setBirthDate(setYear(new Date(), yearNumber))
 	const handleYearChange = (year: string) => {
 		const yearNumber = parseInt(year, 10)
 		if (birthDate) {
@@ -101,12 +92,8 @@ export function AgeCounterComponent() {
 		e.preventDefault()
 		if (birthDate) {
 			const newBirthDate = new Date(birthDate)
-			const newBirthDate = new Date(birthDate)
 			if (birthTime) {
 				const [hours, minutes] = birthTime.split(":").map(Number)
-				newBirthDate.setHours(hours, minutes, 0, 0)
-			} else {
-				newBirthDate.setHours(0, 0, 0, 0)
 				newBirthDate.setHours(hours, minutes, 0, 0)
 			} else {
 				newBirthDate.setHours(0, 0, 0, 0)
@@ -118,9 +105,6 @@ export function AgeCounterComponent() {
 		}
 	}
 
-	const handleInputReset = () => {
-		setBirthDate(undefined)
-		setBirthTime(null)
 	const handleInputReset = () => {
 		setBirthDate(undefined)
 		setBirthTime(null)
