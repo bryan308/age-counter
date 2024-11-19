@@ -18,6 +18,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select"
+import { ModeToggle } from "./mode-toggle"
 
 const lerp = (start: number, end: number, alpha: number) => {
 	const difference = end - start
@@ -122,6 +123,7 @@ export function AgeCounterComponent() {
 							showCounter ? "opacity-0 h-0 overflow-hidden" : "opacity-100"
 						}`}
 					>
+						<ModeToggle />
 						<form
 							onSubmit={handleSubmit}
 							className="space-y-4"
